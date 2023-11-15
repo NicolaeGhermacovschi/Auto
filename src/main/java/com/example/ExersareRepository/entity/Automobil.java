@@ -3,18 +3,42 @@ package com.example.ExersareRepository.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "automobil")
 public class Automobil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     private String denAuto;
     private String marca;
     private Integer km;
     private Integer age;
-    @Enumerated(EnumType.STRING)
     private ColorAuto colorAuto;
 
     private Integer idMall;
+
+    public Automobil() {
+    }
+
+    public Automobil(long id, String denAuto, String marca,
+                     Integer km, Integer age, ColorAuto colorAuto, Integer idMall) {
+        this.id = id;
+        this.denAuto = denAuto;
+        this.marca = marca;
+        this.km = km;
+        this.age = age;
+        this.colorAuto = colorAuto;
+        this.idMall = idMall;
+    }
+
+    public Automobil(String denAuto, String marca,
+                     Integer km, Integer age, ColorAuto colorAuto, Integer idMall) {
+        this.denAuto = denAuto;
+        this.marca = marca;
+        this.km = km;
+        this.age = age;
+        this.colorAuto = colorAuto;
+        this.idMall = idMall;
+    }
 
     public Integer getIdMall() {
         return idMall;
@@ -24,11 +48,11 @@ public class Automobil {
         this.idMall = idMall;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -70,6 +94,10 @@ public class Automobil {
 
     public void setColorAuto(ColorAuto colorAuto) {
         this.colorAuto = colorAuto;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
